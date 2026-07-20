@@ -1,0 +1,84 @@
+{
+  "paper_title": "Predicting Star Scientists in the Field of Artificial Intelligence: A Machine Learning Approach",
+  "paper_url": "https://arxiv.org/pdf/2407.14559v1",
+  "societal_problem": "The inability to identify potential star scientists early in their careers limits opportunities for targeted recruitment, collaboration, networking, and funding allocation, which in turn hampers scientific innovation and knowledge transfer.",
+  "solution_architecture": "The solution is a web-based platform that leverages a machine learning model to predict star scientists in the field of AI based on early-career features. The platform will include a backend for data processing and model inference, a frontend for user interaction, and a database for storing researcher profiles and prediction results. The tech stack includes Python (for ML model development), Flask or FastAPI (backend), React.js (frontend), PostgreSQL (database), and Docker (containerization). The ML pipeline will use libraries like scikit-learn or PyTorch for model development and feature engineering.",
+  "status": "in_progress",
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Set up the project repository with basic folder structure for backend, frontend, and ML model development.",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "description": "Create Dockerfiles for containerizing the backend, frontend, and ML model services.",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "description": "Develop the machine learning model to predict star scientists, including feature engineering for early-career attributes such as number of articles, group discipline diversity, and weighted degree centrality.",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "description": "Implement data preprocessing pipeline for cleaning and transforming researcher data into a format suitable for model training and inference.",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "description": "Build the backend API using Flask or FastAPI to handle requests for predictions and manage researcher profiles.",
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "description": "Design and implement the database schema in PostgreSQL to store researcher profiles, prediction results, and feature data.",
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "description": "Develop the frontend application using React.js to allow users to input researcher data, view prediction results, and explore insights about star scientist features.",
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "description": "Integrate the machine learning model with the backend API for real-time prediction requests.",
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "description": "Implement user authentication and access control to ensure secure access to the platform.",
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "description": "Create visualizations in the frontend to display insights such as feature importance and diversity metrics for researchers.",
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "description": "Write unit tests for the machine learning model, backend APIs, and frontend components to ensure code reliability.",
+      "status": "pending"
+    },
+    {
+      "id": 12,
+      "description": "Deploy the application using Docker Compose or Kubernetes for scalable and reliable hosting.",
+      "status": "pending"
+    },
+    {
+      "id": 13,
+      "description": "Set up CI/CD pipelines to automate testing, building, and deployment processes.",
+      "status": "pending"
+    },
+    {
+      "id": 14,
+      "description": "Perform end-to-end testing of the application to ensure seamless integration between the backend, frontend, and machine learning model.",
+      "status": "pending"
+    },
+    {
+      "id": 15,
+      "description": "Prepare user documentation and tutorials for researchers, funding agencies, and other stakeholders to use the platform effectively.",
+      "status": "pending"
+    }
+  ]
+}
