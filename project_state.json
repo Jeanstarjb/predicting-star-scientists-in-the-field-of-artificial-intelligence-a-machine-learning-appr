@@ -23,7 +23,7 @@
     {
       "id": 4,
       "description": "Implement data preprocessing pipeline for cleaning and transforming researcher data into a format suitable for model training and inference.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 5,
