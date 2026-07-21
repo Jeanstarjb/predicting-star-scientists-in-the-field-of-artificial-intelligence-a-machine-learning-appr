@@ -9,3 +9,5 @@ The inability to identify potential star scientists early in their careers limit
 The solution is a web-based platform that leverages a machine learning model to predict star scientists in the field of AI based on early-career features. The platform will include a backend for data processing and model inference, a frontend for user interaction, and a database for storing researcher profiles and prediction results. The tech stack includes Python (for ML model development), Flask or FastAPI (backend), React.js (frontend), PostgreSQL (database), and Docker (containerization). The ML pipeline will use libraries like scikit-learn or PyTorch for model development and feature engineering.
 
 ## Progress Log
+
+- **Completed Task:** Set up the project repository with basic folder structure for backend, frontend, and ML model development.
