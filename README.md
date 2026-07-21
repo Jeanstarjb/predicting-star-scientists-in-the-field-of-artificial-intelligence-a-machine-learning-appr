@@ -12,3 +12,4 @@ The solution is a web-based platform that leverages a machine learning model to 
 
 - **Completed Task:** Set up the project repository with basic folder structure for backend, frontend, and ML model development.
 - **Completed Task:** Create Dockerfiles for containerizing the backend, frontend, and ML model services.
+- **Completed Task:** Develop the machine learning model to predict star scientists, including feature engineering for early-career attributes such as number of articles, group discipline diversity, and weighted degree centrality.
