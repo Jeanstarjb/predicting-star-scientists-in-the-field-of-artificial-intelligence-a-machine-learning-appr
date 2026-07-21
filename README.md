@@ -11,3 +11,4 @@ The solution is a web-based platform that leverages a machine learning model to 
 ## Progress Log
 
 - **Completed Task:** Set up the project repository with basic folder structure for backend, frontend, and ML model development.
+- **Completed Task:** Create Dockerfiles for containerizing the backend, frontend, and ML model services.
