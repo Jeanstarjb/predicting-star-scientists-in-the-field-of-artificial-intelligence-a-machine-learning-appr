@@ -18,7 +18,7 @@
     {
       "id": 3,
       "description": "Develop the machine learning model to predict star scientists, including feature engineering for early-career attributes such as number of articles, group discipline diversity, and weighted degree centrality.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 4,
