@@ -33,7 +33,7 @@
     {
       "id": 6,
       "description": "Design and implement the database schema in PostgreSQL to store researcher profiles, prediction results, and feature data.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 7,
