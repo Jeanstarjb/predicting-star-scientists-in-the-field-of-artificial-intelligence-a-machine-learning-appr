@@ -1,60 +1,68 @@
 import React, { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Container, CssBaseline, Typography, Button, Paper, CircularProgress } from '@mui/material';
+import { CssBaseline, Container, Box } from '@mui/material';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
+import ResearcherForm from './components/ResearcherForm';
+import PredictionResult from './components/PredictionResult';
+import Navigation from './components/Navigation';
+import InsightsDashboard from './components/InsightsDashboard';
 
 const theme = createTheme({
   palette: {
-    mode: 'light',
-    primary: {
-      main: '#2e7d32',
-    },
-    secondary: {
-      main: '#d84315',
-    },
+    mode: 'dark',
+    primary: { main: '#7c4dff' },
+    secondary: { main: '#00bcd4' },
+    background: { default: '#121212', paper: '#1e1e1e' },
   },
+  typography: {
+    fontFamily: 'Inter, sans-serif',
+    h1: { fontWeight: 800, fontSize: '3.5rem' },
+  },
+  shape: { borderRadius: 16 },
 });
 
 export default function App() {
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handlePredict = async () => {
+  const handlePredict = async (data) => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/predict', {
-        features: [] // Placeholder for actual features
-      });
+      const response = await axios.post('http://localhost:8000/predict', data);
       setPrediction(response.data);
     } catch (error) {
       console.error('Prediction error:', error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <Paper elevation={3} sx={{ p: 4, textAlign: 'center' }}>
-          <Typography variant="h4" gutterBottom sx={{ color: 'primary.main' }}>
-            Star Scientist Predictor
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={handlePredict}
-            disabled={loading}
-            sx={{ mt: 2 }}
-          >
-            {loading ? <CircularProgress size={24} /> : 'Run Prediction'}
-          </Button>
-          {prediction && (
-            <Typography variant="h6" sx={{ mt: 4, color: 'secondary.main' }}>
-              Prediction Score: {prediction.prediction}
-            </Typography>
-          )}
-        </Paper>
-      </Container>
+      <Router>
+        <Navigation />
+        <Container maxWidth="md" sx={{ py: 6 }}>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Box sx={{ textAlign: 'center', mb: 6 }}>
+                  <Typography variant="h1" gutterBottom>
+                    Star Scientist Predictor
+                  </Typography>
+                  <Typography variant="h5" color="text.secondary">
+                    Identify future AI research leaders through early-career achievements
+                  </Typography>
+                </Box>
+                <ResearcherForm onSubmit={handlePredict} loading={loading} />
+                <PredictionResult prediction={prediction} loading={loading} />
+              </>
+            } />
+            <Route path="/insights" element={<InsightsDashboard />} />
+          </Routes>
+        </Container>
+      </Router>
     </ThemeProvider>
   );
 }
