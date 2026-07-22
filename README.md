@@ -15,3 +15,4 @@ The solution is a web-based platform that leverages a machine learning model to 
 - **Completed Task:** Develop the machine learning model to predict star scientists, including feature engineering for early-career attributes such as number of articles, group discipline diversity, and weighted degree centrality.
 - **Completed Task:** Implement data preprocessing pipeline for cleaning and transforming researcher data into a format suitable for model training and inference.
 - **Completed Task:** Build the backend API using Flask or FastAPI to handle requests for predictions and manage researcher profiles.
+- **Completed Task:** Design and implement the database schema in PostgreSQL to store researcher profiles, prediction results, and feature data.
