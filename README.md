@@ -17,3 +17,4 @@ The solution is a web-based platform that leverages a machine learning model to 
 - **Completed Task:** Build the backend API using Flask or FastAPI to handle requests for predictions and manage researcher profiles.
 - **Completed Task:** Design and implement the database schema in PostgreSQL to store researcher profiles, prediction results, and feature data.
 - **Completed Task:** Develop the frontend application using React.js to allow users to input researcher data, view prediction results, and explore insights about star scientist features.
+- **Completed Task:** Integrate the machine learning model with the backend API for real-time prediction requests.
