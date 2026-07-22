@@ -27,7 +27,7 @@ class PublicationBase(BaseModel):
     journal: str
 
 class PublicationCreate(PublicationBase):
-    researcher_id: int
+    pass
 
 class Publication(PublicationBase):
     id: int
@@ -37,13 +37,11 @@ class Publication(PublicationBase):
     class Config:
         orm_mode = True
 
-class PredictionBase(BaseModel):
-    researcher_id: int
-    prediction_score: float
+class PredictionInput(BaseModel):
+    start_year: int
+    citation_count: int
+    publications_count: int
+    h_index: int
 
-class Prediction(PredictionBase):
-    id: int
-    created_at: datetime
-
-    class Config:
-        orm_mode = True
+class PredictionResult(BaseModel):
+    starPotential: float
