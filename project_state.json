@@ -43,7 +43,7 @@
     {
       "id": 8,
       "description": "Integrate the machine learning model with the backend API for real-time prediction requests.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 9,
