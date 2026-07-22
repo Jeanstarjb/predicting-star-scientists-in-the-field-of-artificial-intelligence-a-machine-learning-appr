@@ -28,7 +28,7 @@
     {
       "id": 5,
       "description": "Build the backend API using Flask or FastAPI to handle requests for predictions and manage researcher profiles.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 6,
