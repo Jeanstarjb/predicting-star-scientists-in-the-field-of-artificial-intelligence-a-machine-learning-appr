@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 import datetime
 from . import models, schemas, preprocessing
 from .database import get_db
-from .routers import researchers, publications, predictions, auth
+from .routers import researchers, publications, predictions, auth, insights
 
 app = FastAPI()
 
@@ -17,5 +17,6 @@ app.include_router(auth.router)
 app.include_router(researchers.router)
 app.include_router(publications.router)
 app.include_router(predictions.router)
+app.include_router(insights.router, prefix="/api/insights")
 
 # ... [keep existing endpoints] ...
