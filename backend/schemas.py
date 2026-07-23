@@ -2,6 +2,10 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import List, Optional
 
+class FeatureImportance(BaseModel):
+    feature: str
+    importance: float
+
 class Token(BaseModel):
     access_token: str
     token_type: str
