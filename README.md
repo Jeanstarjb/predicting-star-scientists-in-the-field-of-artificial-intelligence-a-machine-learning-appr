@@ -20,3 +20,4 @@ The solution is a web-based platform that leverages a machine learning model to 
 - **Completed Task:** Integrate the machine learning model with the backend API for real-time prediction requests.
 - **Completed Task:** Implement user authentication and access control to ensure secure access to the platform.
 - **Completed Task:** Create visualizations in the frontend to display insights such as feature importance and diversity metrics for researchers.
+- **Completed Task:** Write unit tests for the machine learning model, backend APIs, and frontend components to ensure code reliability.
