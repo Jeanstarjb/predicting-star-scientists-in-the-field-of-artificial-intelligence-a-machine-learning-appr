@@ -1,8 +1,10 @@
-FROM node:18-alpine as build
+FROM node:18-alpine AS build
 WORKDIR /app
-COPY frontend/package.json .
-RUN npm install
-COPY frontend .
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci
+COPY frontend/ .
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 RUN npm run build
 
 FROM nginx:alpine
