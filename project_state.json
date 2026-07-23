@@ -53,7 +53,7 @@
     {
       "id": 10,
       "description": "Create visualizations in the frontend to display insights such as feature importance and diversity metrics for researchers.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 11,
