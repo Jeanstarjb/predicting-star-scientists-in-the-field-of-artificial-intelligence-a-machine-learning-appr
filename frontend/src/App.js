@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Container, Box } from '@mui/material';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import axios from 'axios';
+import AuthForm from './components/AuthForm';
 import ResearcherForm from './components/ResearcherForm';
 import PredictionResult from './components/PredictionResult';
 import Navigation from './components/Navigation';
@@ -12,57 +13,53 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: { main: '#7c4dff' },
-    secondary: { main: '#00bcd4' },
-    background: { default: '#121212', paper: '#1e1e1e' },
-  },
-  typography: {
-    fontFamily: 'Inter, sans-serif',
-    h1: { fontWeight: 800, fontSize: '3.5rem' },
-  },
-  shape: { borderRadius: 16 },
+    // ... [keep existing theme config] ...
 });
 
-export default function App() {
-  const [prediction, setPrediction] = useState(null);
-  const [loading, setLoading] = useState(false);
+function App() {
+  const [user, setUser] = useState(null);
 
-  const handlePredict = async (data) => {
-    setLoading(true);
-    try {
-      const response = await axios.post('http://localhost:8000/predict', data);
-      setPrediction(response.data);
-    } catch (error) {
-      console.error('Prediction error:', error);
-    } finally {
-      setLoading(false);
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      axios.get('http://localhost:8000/auth/me', {
+        headers: { Authorization: `Bearer ${token}` }
+      }).then(res => setUser(res.data))
+        .catch(() => localStorage.removeItem('accessToken'));
     }
+  }, []);
+
+  const ProtectedRoute = ({ children }) => {
+    if (!user) {
+      return <Navigate to="/login" replace />;
+    }
+    return children;
   };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Navigation />
-        <Container maxWidth="md" sx={{ py: 6 }}>
+        <Navigation user={user} setUser={setUser} />
+        <Container maxWidth="lg">
           <Routes>
+            <Route path="/login" element={<AuthForm isLogin={true} />} />
+            <Route path="/signup" element={<AuthForm isLogin={false} />} />
             <Route path="/" element={
-              <>
-                <Box sx={{ textAlign: 'center', mb: 6 }}>
-                  <Typography variant="h1" gutterBottom>
-                    Star Scientist Predictor
-                  </Typography>
-                  <Typography variant="h5" color="text.secondary">
-                    Identify future AI research leaders through early-career achievements
-                  </Typography>
-                </Box>
-                <ResearcherForm onSubmit={handlePredict} loading={loading} />
-                <PredictionResult prediction={prediction} loading={loading} />
-              </>
+              <ProtectedRoute>
+                <ResearcherForm />
+              </ProtectedRoute>
             } />
-            <Route path="/insights" element={<InsightsDashboard />} />
+            <Route path="/insights" element={
+              <ProtectedRoute>
+                <InsightsDashboard />
+              </ProtectedRoute>
+            } />
           </Routes>
         </Container>
       </Router>
     </ThemeProvider>
   );
 }
+
+export default App;
