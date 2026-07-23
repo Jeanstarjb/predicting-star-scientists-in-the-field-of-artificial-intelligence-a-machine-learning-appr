@@ -63,7 +63,7 @@
     {
       "id": 12,
       "description": "Deploy the application using Docker Compose or Kubernetes for scalable and reliable hosting.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 13,
