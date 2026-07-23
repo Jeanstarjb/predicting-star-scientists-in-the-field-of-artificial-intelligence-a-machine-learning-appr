@@ -7,23 +7,15 @@ from sqlalchemy.orm import Session
 import datetime
 from . import models, schemas, preprocessing
 from .database import get_db
-from .routers import researchers, publications, predictions
+from .routers import researchers, publications, predictions, auth
 
 app = FastAPI()
 
-try:
-    model = joblib.load('model.joblib')
-    preprocessor = preprocessing.DataPreprocessor()
-except Exception as e:
-    raise RuntimeError(f"Error loading model or preprocessor: {e}")
+# ... [keep existing model loading] ...
 
-app.state.model = model
-app.state.preprocessor = preprocessor
-
+app.include_router(auth.router)
 app.include_router(researchers.router)
 app.include_router(publications.router)
 app.include_router(predictions.router)
 
-@app.get("/healthcheck")
-def healthcheck():
-    return {"status": "healthy"}
+# ... [keep existing endpoints] ...
