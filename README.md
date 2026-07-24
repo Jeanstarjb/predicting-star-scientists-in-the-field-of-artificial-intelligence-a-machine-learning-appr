@@ -11,3 +11,4 @@ Explore detailed guides and tutorials:
 
 ## Architecture
 ... [previous content truncated] ...
+- **Completed Task:** Prepare user documentation and tutorials for researchers, funding agencies, and other stakeholders to use the platform effectively.
