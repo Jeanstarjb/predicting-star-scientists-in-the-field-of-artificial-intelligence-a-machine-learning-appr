@@ -73,7 +73,7 @@
     {
       "id": 14,
       "description": "Perform end-to-end testing of the application to ensure seamless integration between the backend, frontend, and machine learning model.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 15,
