@@ -22,3 +22,4 @@ The solution is a web-based platform that leverages a machine learning model to 
 - **Completed Task:** Create visualizations in the frontend to display insights such as feature importance and diversity metrics for researchers.
 - **Completed Task:** Write unit tests for the machine learning model, backend APIs, and frontend components to ensure code reliability.
 - **Completed Task:** Deploy the application using Docker Compose or Kubernetes for scalable and reliable hosting.
+- **Completed Task:** Set up CI/CD pipelines to automate testing, building, and deployment processes.
