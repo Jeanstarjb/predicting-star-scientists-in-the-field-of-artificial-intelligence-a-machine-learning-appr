@@ -1,0 +1,67 @@
+version: 2.1
+
+jobs:
+  build-test-backend:
+    docker:
+      - image: cimg/python:3.9
+      - image: postgres:13-alpine
+        environment:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: dbname
+    steps:
+      - checkout
+      - run:
+          name: Install backend dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y gcc
+            pip install -r backend/requirements.txt
+      - run:
+          name: Run backend tests
+          command: pytest backend/tests/
+
+  build-test-deploy-frontend:
+    docker:
+      - image: cimg/node:18.16
+    steps:
+      - checkout
+      - run:
+          name: Install frontend dependencies
+          command: |
+            cd frontend
+            npm ci
+      - run:
+          name: Run frontend tests
+          command: |
+            cd frontend
+            npm test -- --watchAll=false
+      - run:
+          name: Build production assets
+          command: |
+            cd frontend
+            npm run build
+
+  deploy:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build and push Docker images
+          command: |
+            docker-compose -f docker-compose.prod.yml build
+            # Add deployment commands for your cloud provider here
+
+workflows:
+  version: 2.1
+  build-test-deploy:
+    jobs:
+      - build-test-backend
+      - build-test-deploy-frontend
+      - deploy:
+          requires:
+            - build-test-backend
+            - build-test-deploy-frontend
+          filters:
+            branches:
+              only: main
