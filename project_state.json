@@ -68,7 +68,7 @@
     {
       "id": 13,
       "description": "Set up CI/CD pipelines to automate testing, building, and deployment processes.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "id": 14,
