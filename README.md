@@ -10,7 +10,7 @@
 
 This project leverages **machine learning** and **data science** to identify and predict "star scientists" in the field of **Artificial Intelligence (AI)**. By analyzing academic and professional data such as citation counts, h-index, publication records, and collaboration patterns, this platform provides insights into the factors that contribute to impactful careers in AI research.
 
-The application combines **FastAPI** for a robust backend API, **PostgreSQL** for data persistence, and **scikit-learn** for machine learning. With a clean and modular architecture, this platform offers an end-to-end pipeline for training, evaluating, and deploying models while providing an intuitive interface for users to interact with the system.
+The application combines **FastAPI** for a robust backend API, **PostgreSQL** for data persistence, and **scikit-learn** for machine learning. With a clean and modular architecture, this platform offers an end-to-end pipeline for training, evaluating, and deploying models while providing an intuitive interface for users to interact with the system.............
 
 ---
 
