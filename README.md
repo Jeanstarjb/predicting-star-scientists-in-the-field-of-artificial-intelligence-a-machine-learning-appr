@@ -6,7 +6,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13-blue.svg)](https://www.postgresql.org/)
 [![License](https://img.shields.io/github/license/<your-repo>)](./LICENSE)
 
-## 🚀 Project Overview
+## 🚀 Project Overview..
 
 This project leverages **machine learning** and **data science** to identify and predict "star scientists" in the field of **Artificial Intelligence (AI)**. By analyzing academic and professional data such as citation counts, h-index, publication records, and collaboration patterns, this platform provides insights into the factors that contribute to impactful careers in AI research.
 
